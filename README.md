@@ -39,7 +39,12 @@ Duration: 5 minutes + 30s (ramp up) => 330 seconds
 
 
 **Additional Questions:**
+
+**Question:**
+
 **You are given a requirement which states “The system should scale to 2000 users”. What other questions would you need to ask to get enough information to create a workload model**
+
+**Answer:**
 
 **1. Concurrency Profile:**
 What is the expected distribution of users over time? Are they expected to ramp up gradually or hit the system simultaneously?
@@ -65,12 +70,19 @@ Are there specific events or scenarios that could cause a sudden spike in user a
 **8.  Scalability Goals:**
 Are there specific performance goals for key scalability metrics (e.g., response time, throughput) under various load levels?
 
+**Question:**
+
 **Please rewrite the requirement above so that it testable and more descriptive**
 
+**Answer:**
 
 The system should gracefully handle a scalable load of 2000 concurrent users within a specified response time threshold, while maintaining acceptable system performance metrics such as throughput and resource utilization.
 
+**Question:**
+
 **As well as creating a script in a tool to do the performance testing, what other factors would need to be considered for a performance testing engagement?**
+
+**Answer:**
 
 **Test Environment Stability:**
 Ensure that the test environment is stable and representative of the production environment.
