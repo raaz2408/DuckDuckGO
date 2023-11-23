@@ -1,3 +1,43 @@
+**Assessment**
+
+*  Using Apache JMeter with your choice of language and framework, write a performance test script to Complete the following 3 transactions:
+
+1.  Load DuckDuckGo Homepage (https://duckduckgo.com/)
+2.  Type Suggested Search Term
+3.  Select Search Term from the suggested Search Box.
+
+**Transactions have been enclosed in the script.**
+
+*  The script should iterate all three transactions and cycle through the following search teams picking a different one on each iteration.
+
+**This capability has been activated through the utilization of the CSV Data Set Config element, which retrieves P_SearchTermParameter values from a file (SearchParameterFile.csv) located in the bin folder OR**
+**Also, this has been enabled by using user parameters**
+
+*  The test needs run for 5 minutes and should achieve 30 iterations per minute
+
+**The configuration details are as follows:**
+
+**1. First Method:**
+Implemented a Constant Throughput Controller to specify the target throughput. Given the presence of 3 transactions, a throughput of 10 per minute has been assigned to each transaction, aligning with the 10 virtual users.
+
+**2.  Second Method:**
+Incorporated a Constant Throughput Controller into a Concurrency Thread Group consisting of 10 virtual users, a ramp-up period of 10, and a target rate duration of 5 minutes. This allows us to set and maintain the desired target throughput. Considering the presence of 3 transactions, I have set the throughput to 10 per minute.
+
+**3.  Third Method:**
+Number of Vusers: 10
+Ramp up period : 30s ( 1 user ramps up every 3s)
+Pacing time : 20s (using Flow Control Action Sampler)
+Duration: 5 minutes + 30s (ramp up) => 330 seconds
+
+*  Each user should be treated as a new user and caching should be handled appropriately
+
+**1.Same user on each iteration has been disabled. 
+  2.To handle Cache, HTTP Cache Manager has been added**
+
+*  Please be aware that your script should report times for the different elements of the search process (homepage, suggested search, search)
+**Transaction controllers have been incorporated to individually capture the response times of each mentioned transaction.**
+
+
 **Additional Questions:**
 **You are given a requirement which states “The system should scale to 2000 users”. What other questions would you need to ask to get enough information to create a workload model**
 
